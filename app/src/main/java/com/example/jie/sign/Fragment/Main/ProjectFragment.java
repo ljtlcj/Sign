@@ -13,7 +13,7 @@ import com.example.jie.sign.R;
  * Created by Diko(kedongyu) on 2016/4/7.
  * 本界面对应主界面-项目
  */
-public class ProjectFragment extends BaseLazyFragment implements FastMenuBar.onMenuBarClickListener {
+public class ProjectFragment extends BaseLazyFragment  {
 
 
     @Override
@@ -33,16 +33,13 @@ public class ProjectFragment extends BaseLazyFragment implements FastMenuBar.onM
 
     @Override
     public void initData() {
+        setEdit("登陆");
+        setEdit2("注册");
         setTitle("项目");
     }
 
     @Override
     public void processClick(View v) {
-
-    }
-
-    @Override
-    public void onMenuBarClick(FastMenuBar v) {
 
     }
 }

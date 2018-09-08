@@ -16,7 +16,7 @@ import java.util.List;
 /**
  * Created by handsome on 2016/4/7.
  */
-public class MessageFragment extends BaseLazyFragment implements ViewPager.OnPageChangeListener{
+public class MessageFragment extends BaseLazyFragment {
 
     @Override
     public int getLayoutId() {
@@ -42,27 +42,6 @@ public class MessageFragment extends BaseLazyFragment implements ViewPager.OnPag
 
     @Override
     public void processClick(View v) {
-
-    }
-    /**
-     * 初始化碎片
-     */
-    private void initFragments() {
-
-    }
-    public void selectPager(int position){
-
-    }
-    @Override
-    public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-
-    }
-    @Override
-    public void onPageSelected(int position) {
-
-    }
-    @Override
-    public void onPageScrollStateChanged(int state) {
 
     }
 }
