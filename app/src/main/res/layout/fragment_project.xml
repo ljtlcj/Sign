@@ -37,6 +37,7 @@
                     android:text="会议管理"
                     android:textSize="14sp" />
             </LinearLayout>
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="90dp"
@@ -44,7 +45,7 @@
                 android:orientation="horizontal">
 
                 <LinearLayout
-
+                    android:id="@+id/ly_meeting_check"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
@@ -64,7 +65,6 @@
                         android:textColor="#5D5F6A"
                         android:textSize="14dp" />
                 </LinearLayout>
-
 
 
                 <LinearLayout
@@ -90,7 +90,6 @@
                 </LinearLayout>
 
 
-
                 <LinearLayout
 
                     android:layout_width="0dp"
@@ -112,7 +111,6 @@
                         android:textColor="#5D5F6A"
                         android:textSize="14dp" />
                 </LinearLayout>
-
 
 
                 <LinearLayout
@@ -197,7 +195,6 @@
                     </LinearLayout>
 
 
-
                     <LinearLayout
 
                         android:layout_width="0dp"
@@ -222,7 +219,6 @@
                     </LinearLayout>
 
 
-
                     <LinearLayout
 
                         android:layout_width="0dp"
@@ -245,7 +241,6 @@
                             android:textColor="#5D5F6A"
                             android:textSize="14dp" />
                     </LinearLayout>
-
 
 
                     <LinearLayout
@@ -302,7 +297,6 @@
                     </LinearLayout>
 
 
-
                     <LinearLayout
 
                         android:layout_width="0dp"
@@ -327,7 +321,6 @@
                     </LinearLayout>
 
 
-
                     <LinearLayout
 
                         android:layout_width="0dp"
@@ -350,7 +343,6 @@
                             android:textColor="#5D5F6A"
                             android:textSize="14dp" />
                     </LinearLayout>
-
 
 
                     <LinearLayout
@@ -431,7 +423,6 @@
                     </LinearLayout>
 
 
-
                     <LinearLayout
 
                         android:layout_width="0dp"
@@ -456,7 +447,6 @@
                     </LinearLayout>
 
 
-
                     <LinearLayout
 
                         android:layout_width="0dp"
@@ -479,7 +469,6 @@
                             android:textColor="#5D5F6A"
                             android:textSize="14dp" />
                     </LinearLayout>
-
 
 
                     <LinearLayout
