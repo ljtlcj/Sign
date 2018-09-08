@@ -1,14 +1,12 @@
 package com.example.jie.sign.Fragment.Main;
 
-import android.content.Intent;
 import android.view.View;
 import android.widget.LinearLayout;
 
 import com.example.jie.sign.BaseTemplate.BaseLazyFragment;
-import com.example.jie.sign.CustomView.FastMenuBar;
 
 import com.example.jie.sign.R;
-import com.example.jie.sign.View.MeetingCheck;
+import com.example.jie.sign.View.MeetingCheckActivity;
 
 
 /**
@@ -45,7 +43,7 @@ public class ProjectFragment extends BaseLazyFragment {
     public void processClick(View v) {
         switch (v.getId()){
             case R.id.ly_meeting_check:
-                startActivity(MeetingCheck.class);
+                startActivity(MeetingCheckActivity.class);
                 break;
             default:
                 break;

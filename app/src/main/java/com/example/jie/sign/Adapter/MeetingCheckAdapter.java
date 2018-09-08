@@ -1,0 +1,59 @@
+package com.example.jie.sign.Adapter;
+
+import android.support.v7.widget.RecyclerView;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.TextView;
+
+import com.example.jie.sign.Bean.MeetingCheckBean;
+import com.example.jie.sign.R;
+
+import java.util.List;
+
+/**
+ * Created by YX on 2018/9/8.
+ */
+
+public class MeetingCheckAdapter extends RecyclerView.Adapter<MeetingCheckAdapter.ViewHolder> {
+
+    private List<MeetingCheckBean> list;
+
+    public MeetingCheckAdapter(List<MeetingCheckBean> list) {
+        this.list = list;
+    }
+
+    static public class ViewHolder extends RecyclerView.ViewHolder {
+
+        private final TextView tv_name;
+        private final TextView tv_address;
+        private final TextView tv_time;
+
+        public ViewHolder(View itemView) {
+            super(itemView);
+            tv_name = itemView.findViewById(R.id.tv_name);
+            tv_address = itemView.findViewById(R.id.tv_address);
+            tv_time = itemView.findViewById(R.id.tv_time);
+        }
+    }
+
+    @Override
+    public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_meeting_check, null);
+        ViewHolder holder = new ViewHolder(view);
+        return holder;
+    }
+
+    @Override
+    public void onBindViewHolder(ViewHolder holder, int position) {
+        MeetingCheckBean meetingCheckBean = list.get(position);
+        holder.tv_name.setText(meetingCheckBean.getName());
+        holder.tv_address.setText(meetingCheckBean.getAddress());
+        holder.tv_time.setText(meetingCheckBean.getTime());
+    }
+
+    @Override
+    public int getItemCount() {
+        return list.size();
+    }
+}

@@ -88,7 +88,6 @@ public class MainActivity extends BaseActivity implements ViewPager.OnPageChange
 //        list.add(new HomeFragment());
         list.add(new MessageFragment());
         list.add(new ProjectFragment());
-
         list.add(new MineFragment());
 
         adapter = new MainAdapter(getSupportFragmentManager(), list);
