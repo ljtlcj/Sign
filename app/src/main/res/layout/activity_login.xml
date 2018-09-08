@@ -80,5 +80,6 @@
             android:text="忘记密码"
             android:textColor="#afafaf"
             android:textSize="18dp" />
+
     </LinearLayout>
 </RelativeLayout>
