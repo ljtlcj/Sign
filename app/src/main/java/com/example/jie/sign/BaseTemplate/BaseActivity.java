@@ -7,25 +7,22 @@ import android.os.Bundle;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.util.SparseArray;
 import android.view.View;
+import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
+
+import com.example.jie.sign.R;
 
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * ====== 作者 ======
- * linchujie yaoxi
- * ====== 时间 ======
- * 2018-03-02.
- */
+public abstract class BaseActivity extends AppCompatActivity implements View.OnClickListener {
 
-public abstract class BaseActivity extends AppCompatActivity implements View.OnClickListener{
-//"UserInformation", MODE_PRIVATE
     private SparseArray<View> mViews;
     private Intent intent;
-
     public abstract int getLayoutId();
 
     public abstract void initViews();
@@ -36,6 +33,12 @@ public abstract class BaseActivity extends AppCompatActivity implements View.OnC
 
     public abstract void processClick(View v);
 
+    public void onClick(View v) {
+        if (v.getId() == R.id.iv_finish) {
+            finish();
+        }
+        processClick(v);
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,9 +48,6 @@ public abstract class BaseActivity extends AppCompatActivity implements View.OnC
         initViews();
         initListener();
         initData();
-    }
-    public void onClick(View v) {
-        processClick(v);
     }
 
     /**
@@ -65,6 +65,7 @@ public abstract class BaseActivity extends AppCompatActivity implements View.OnC
         }
         return view;
     }
+
     /**
      * Encapsulation setOnClickListener
      *
@@ -94,7 +95,6 @@ public abstract class BaseActivity extends AppCompatActivity implements View.OnC
         startActivity(intent);
     }
 
-
     /**
      * Request permission
      *
@@ -115,9 +115,48 @@ public abstract class BaseActivity extends AppCompatActivity implements View.OnC
         }
     }
 
-//    @Override
-//    protected void attachBaseContext(Context base) {
-//        super.attachBaseContext(base);
-////        MultiDex.install(this);
-//    }
+
+    /**
+     * 设置标题栏标题
+     *
+     * @param title
+     */
+    public void setTitle(String title) {
+        TextView tv_title = findView(R.id.tv_title);
+        tv_title.setText(title);
+    }
+
+    /**
+     * 设置标题栏有返回按钮
+     */
+    public void setTitleCanBack() {
+        ImageView iv_finish = findView(R.id.iv_finish);
+        iv_finish.setVisibility(View.VISIBLE);
+        setOnClick(iv_finish);
+    }
+
+    /**
+     * 设置编辑菜单
+     *
+     * @param text
+     */
+    public void setEdit(String text) {
+        TextView tv_edit = findView(R.id.tv_edit);
+        tv_edit.setVisibility(View.VISIBLE);
+        tv_edit.setText(text);
+        setOnClick(tv_edit);
+    }
+
+    /**
+     * 设置编辑菜单
+     *
+     * @param text
+     */
+    public void setEdit2(String text) {
+        TextView tv_edit2 = findView(R.id.tv_edit2);
+        tv_edit2.setVisibility(View.VISIBLE);
+        tv_edit2.setText(text);
+        setOnClick(tv_edit2);
+    }
+
 }

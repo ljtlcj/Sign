@@ -17,6 +17,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".View.MeetingCheckActivity"/>
+        <activity android:name=".View.MeetingCheckDetailMemberActivity"/>
+        <activity android:name=".View.MeetingCheckDetailActivity"/>
     </application>
 
 </manifest>
