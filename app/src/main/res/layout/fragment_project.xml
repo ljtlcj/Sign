@@ -61,7 +61,7 @@
 
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="会议任务"
+                        android:text="查看会议"
                         android:textColor="#5D5F6A"
                         android:textSize="14dp" />
                 </LinearLayout>

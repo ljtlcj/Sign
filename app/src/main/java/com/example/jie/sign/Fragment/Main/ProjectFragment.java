@@ -38,9 +38,7 @@ public class ProjectFragment extends BaseLazyFragment {
 
     @Override
     public void initData() {
-        setEdit("登陆");
-        setEdit2("注册");
-        setTitle("项目");
+        setTitle("功能");
     }
 
     @Override
