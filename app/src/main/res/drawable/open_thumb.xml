@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+    <!--设置高度-->
+    <size android:height="20dp" />
+    <!--设置弧度-->
+    <corners android:radius="10dp"/>
+    <!--设置渐变,两个颜色一样则没有渐变效果-->
+    <gradient
+        android:endColor="#eeeeee"
+        android:startColor="#eeeeee"/>
+    <!--边缘一层绿色-->
+    <stroke
+        android:width="2dp"
+        android:color="#33da33" />
+</shape>
