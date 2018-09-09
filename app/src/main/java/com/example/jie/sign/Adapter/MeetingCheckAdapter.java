@@ -48,11 +48,19 @@ public class MeetingCheckAdapter extends RecyclerView.Adapter<MeetingCheckAdapte
     }
 
     @Override
-    public void onBindViewHolder(ViewHolder holder, int position) {
+    public void onBindViewHolder(final ViewHolder holder, final int position) {
         MeetingCheckBean meetingCheckBean = list.get(position);
         holder.tv_name.setText(meetingCheckBean.getName());
         holder.tv_address.setText(meetingCheckBean.getAddress());
         holder.tv_time.setText(meetingCheckBean.getTime());
+        if (mOnItemClickListener != null){
+            holder.itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    mOnItemClickListener.onItemClick(view,position);
+                }
+            });
+        }
     }
 
     @Override
@@ -60,7 +68,7 @@ public class MeetingCheckAdapter extends RecyclerView.Adapter<MeetingCheckAdapte
         return list.size();
     }
 
-    public void setOnItemClickListener(OnItemClickListener onItemClickListener){
+    public void setOnItemClickListener(OnItemClickListener onItemClickListener) {
         mOnItemClickListener = onItemClickListener;
     }
 }

@@ -30,6 +30,7 @@ public class MeetingCheckDetailMemberActivity extends BaseActivity {
 
     @Override
     public void initData() {
+        setTitleCanBack();
         setTitle("人员列表");
     }
 
