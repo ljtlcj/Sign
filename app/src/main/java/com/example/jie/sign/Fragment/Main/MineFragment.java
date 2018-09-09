@@ -17,7 +17,7 @@ public class MineFragment extends BaseLazyFragment implements FastMenuBar.onMenu
 
     @Override
     public int getLayoutId() {
-        return R.layout.fragment_mine;
+        return R.layout.activity_login;
     }
 
     @Override
@@ -32,7 +32,7 @@ public class MineFragment extends BaseLazyFragment implements FastMenuBar.onMenu
 
     @Override
     public void initData() {
-        setTitle("我的");
+
     }
 
     @Override
