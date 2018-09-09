@@ -19,6 +19,7 @@
         <activity android:name=".View.MeetingCheckActivity"/>
         <activity android:name=".View.MeetingCheckDetailMemberActivity"/>
         <activity android:name=".View.MeetingCheckDetailActivity"/>
+        <activity android:name=".View.MeetingRoomActivity"/>
     </application>
 
 </manifest>

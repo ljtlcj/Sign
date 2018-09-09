@@ -2,11 +2,13 @@ package com.example.jie.sign.Fragment.Main;
 
 import android.view.View;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import com.example.jie.sign.BaseTemplate.BaseLazyFragment;
 
 import com.example.jie.sign.R;
 import com.example.jie.sign.View.MeetingCheckActivity;
+import com.example.jie.sign.View.MeetingRoomActivity;
 
 
 /**
@@ -17,6 +19,7 @@ public class ProjectFragment extends BaseLazyFragment {
 
 
     private LinearLayout ly_meeting_check;
+    private LinearLayout ly_check_meeting_room;//查看会议室
 
     @Override
     public int getLayoutId() {
@@ -26,12 +29,13 @@ public class ProjectFragment extends BaseLazyFragment {
     @Override
     public void initViews() {
         ly_meeting_check = findView(R.id.ly_meeting_check);
-
+        ly_check_meeting_room = findView(R.id.ly_check_meeting_room);
     }
 
     @Override
     public void initListener() {
         ly_meeting_check.setOnClickListener(this);
+        ly_check_meeting_room.setOnClickListener(this);
     }
 
     @Override
@@ -44,6 +48,9 @@ public class ProjectFragment extends BaseLazyFragment {
         switch (v.getId()){
             case R.id.ly_meeting_check:
                 startActivity(MeetingCheckActivity.class);
+                break;
+            case R.id.ly_check_meeting_room:
+                startActivity(MeetingRoomActivity.class);
                 break;
             default:
                 break;

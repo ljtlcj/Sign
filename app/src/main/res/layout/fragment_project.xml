@@ -91,7 +91,7 @@
 
 
                 <LinearLayout
-
+                    android:id="@+id/ly_check_meeting_room"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
@@ -104,10 +104,9 @@
                         android:background="@drawable/workbench_ic_security_check" />
 
                     <TextView
-
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="安全检查"
+                        android:text="查看会议室"
                         android:textColor="#5D5F6A"
                         android:textSize="14dp" />
                 </LinearLayout>
