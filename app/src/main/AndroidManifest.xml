@@ -20,6 +20,7 @@
         <activity android:name=".View.MeetingCheckDetailMemberActivity"/>
         <activity android:name=".View.MeetingCheckDetailActivity"/>
         <activity android:name=".View.MeetingRoomActivity"/>
+        <activity android:name=".View.MeetingRoomAddActivity"/>
     </application>
 
 </manifest>

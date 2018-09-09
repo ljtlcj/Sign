@@ -66,7 +66,7 @@ public class MeetingRoomActivity extends BaseActivity {
     public void processClick(View v) {
         switch (v.getId()){
             case R.id.tv_edit2:
-                startActivity();
+                startActivity(MeetingRoomAddActivity.class);
                 break;
             default:
                 break;
