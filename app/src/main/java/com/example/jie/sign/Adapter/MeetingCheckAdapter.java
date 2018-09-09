@@ -8,6 +8,7 @@ import android.widget.TextView;
 
 import com.example.jie.sign.Bean.MeetingCheckBean;
 import com.example.jie.sign.R;
+import com.example.jie.sign.Utils.OnItemClickListener;
 
 import java.util.List;
 
@@ -18,6 +19,8 @@ import java.util.List;
 public class MeetingCheckAdapter extends RecyclerView.Adapter<MeetingCheckAdapter.ViewHolder> {
 
     private List<MeetingCheckBean> list;
+    private OnItemClickListener mOnItemClickListener;//声明接口
+
 
     public MeetingCheckAdapter(List<MeetingCheckBean> list) {
         this.list = list;
@@ -40,7 +43,7 @@ public class MeetingCheckAdapter extends RecyclerView.Adapter<MeetingCheckAdapte
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_meeting_check, null);
-        ViewHolder holder = new ViewHolder(view);
+        final ViewHolder holder = new ViewHolder(view);
         return holder;
     }
 
@@ -55,5 +58,9 @@ public class MeetingCheckAdapter extends RecyclerView.Adapter<MeetingCheckAdapte
     @Override
     public int getItemCount() {
         return list.size();
+    }
+
+    public void setOnItemClickListener(OnItemClickListener onItemClickListener){
+        mOnItemClickListener = onItemClickListener;
     }
 }

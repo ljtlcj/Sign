@@ -8,7 +8,9 @@ import com.example.jie.sign.Adapter.MeetingCheckAdapter;
 import com.example.jie.sign.BaseTemplate.BaseLazyFragment;
 import com.example.jie.sign.Bean.MeetingCheckBean;
 import com.example.jie.sign.R;
+import com.example.jie.sign.Utils.OnItemClickListener;
 import com.example.jie.sign.Utils.SpaceItemDecoration;
+import com.example.jie.sign.View.MeetingCheckDetailActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -48,6 +50,12 @@ public class FinishedFragment extends BaseLazyFragment {
             MeetingCheckBean meetingCheckBean = new MeetingCheckBean("班会", "锡科61401", "2018-12-05 16:00", true);
             lists.add(meetingCheckBean);
         }
+        adapter.setOnItemClickListener(new OnItemClickListener() {
+            @Override
+            public void onItemClick(View view, int position) {
+                startActivity(MeetingCheckDetailActivity.class);
+            }
+        });
     }
 
     @Override

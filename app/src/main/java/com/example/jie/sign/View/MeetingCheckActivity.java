@@ -9,6 +9,7 @@ import android.widget.TextView;
 import com.example.jie.sign.Adapter.MainAdapter;
 import com.example.jie.sign.BaseTemplate.BaseActivity;
 import com.example.jie.sign.Fragment.Main.AllFragment;
+import com.example.jie.sign.Fragment.Main.FinishedFragment;
 import com.example.jie.sign.Fragment.Main.UnFinishedFragment;
 import com.example.jie.sign.R;
 
@@ -57,7 +58,7 @@ public class MeetingCheckActivity extends BaseActivity implements ViewPager.OnPa
         list = new ArrayList<>();
         list.add(new AllFragment());
         list.add(new UnFinishedFragment());
-        list.add(new UnFinishedFragment());
+        list.add(new FinishedFragment());
         adapter = new MainAdapter(getSupportFragmentManager(), list);
         vp_main.setAdapter(adapter);
         vp_main.setOffscreenPageLimit(2);
@@ -83,12 +84,13 @@ public class MeetingCheckActivity extends BaseActivity implements ViewPager.OnPa
 
     //高亮
     public void Light(int position) {
-        tv_all.setTextColor(position == 0 ? Color.parseColor("#FFFFFF") : Color.parseColor("#4cd964"));
-        tv_unfinished.setTextColor(position == 1 ? Color.parseColor("#FFFFFF") : Color.parseColor("#4cd964"));
-        tv_finished.setTextColor(position == 2 ? Color.parseColor("#FFFFFF") : Color.parseColor("#4cd964"));
-        tv_all.setBackgroundResource(position == 0 ? R.drawable.background_green : R.drawable.background_gray);
-        tv_unfinished.setBackgroundResource(position == 1 ? R.drawable.background_green : R.drawable.background_gray);
-        tv_finished.setBackgroundResource(position == 2 ? R.drawable.background_green : R.drawable.background_gray);
+        vp_main.setCurrentItem(position, false);
+        tv_all.setTextColor(position == 0 ? Color.parseColor("#FFFFFF") : Color.parseColor("#303f9f"));
+        tv_unfinished.setTextColor(position == 1 ? Color.parseColor("#FFFFFF") : Color.parseColor("#303f9f"));
+        tv_finished.setTextColor(position == 2 ? Color.parseColor("#FFFFFF") : Color.parseColor("#303f9f"));
+        tv_all.setBackgroundResource(position == 0 ? R.drawable.background_blue : R.drawable.background_gray);
+        tv_unfinished.setBackgroundResource(position == 1 ? R.drawable.background_blue : R.drawable.background_gray);
+        tv_finished.setBackgroundResource(position == 2 ? R.drawable.background_blue : R.drawable.background_gray);
     }
 
     @Override
