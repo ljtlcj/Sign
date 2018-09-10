@@ -1,10 +1,13 @@
 package com.example.jie.sign.Bean;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 /**
  * Created by YX on 2018/9/8.
  */
 
-public class MeetingCheckBean {
+public class MeetingCheckBean implements Parcelable {
     private String name;
     private String address;
     private String time;
@@ -48,4 +51,36 @@ public class MeetingCheckBean {
     public void setTime(String time) {
         this.time = time;
     }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(this.name);
+        dest.writeString(this.address);
+        dest.writeString(this.time);
+        dest.writeByte(this.sign ? (byte) 1 : (byte) 0);
+    }
+
+    protected MeetingCheckBean(Parcel in) {
+        this.name = in.readString();
+        this.address = in.readString();
+        this.time = in.readString();
+        this.sign = in.readByte() != 0;
+    }
+
+    public static final Parcelable.Creator<MeetingCheckBean> CREATOR = new Parcelable.Creator<MeetingCheckBean>() {
+        @Override
+        public MeetingCheckBean createFromParcel(Parcel source) {
+            return new MeetingCheckBean(source);
+        }
+
+        @Override
+        public MeetingCheckBean[] newArray(int size) {
+            return new MeetingCheckBean[size];
+        }
+    };
 }
