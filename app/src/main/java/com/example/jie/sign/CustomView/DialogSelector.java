@@ -21,7 +21,7 @@ import java.util.List;
  * Created by jie on 2018/9/9.
  */
 
-public class DialogSelector extends AlertDialog implements DialogMemberAdapter.OnItemClickListener{
+public class DialogSelector extends Dialog implements DialogMemberAdapter.OnItemClickListener{
     private List<DialogMemberBean> DialogMemberBean = new ArrayList<>();    //选择列表的数据
     private List<DialogMemberBean> DialogMemberBeanselector = new ArrayList<>();
     private Context context;
@@ -30,13 +30,15 @@ public class DialogSelector extends AlertDialog implements DialogMemberAdapter.O
     private Button btn_cancel;
     private Button btn_ok;
     private RecyclerView rv_selector_branch;
+    private int Style; //1 为多选 0 为单选
 
 
-    public DialogSelector(Context context, List<DialogMemberBean> mSimpleListItemEntity, OnSelectorListener cdListener) {
+    public DialogSelector(Context context, List<DialogMemberBean> mSimpleListItemEntity,int style1, OnSelectorListener cdListener) {
         super(context);
         this.context = context;
         this.cdListener = cdListener;
         this.DialogMemberBean = mSimpleListItemEntity;
+        this.Style = style1;
     }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -69,24 +71,27 @@ public class DialogSelector extends AlertDialog implements DialogMemberAdapter.O
         });
         LinearLayoutManager layoutmanager = new LinearLayoutManager(getContext());
         rv_selector_branch.setLayoutManager(layoutmanager);
-        mSelectorBranchAdapter = new DialogMemberAdapter(DialogMemberBean);
+        mSelectorBranchAdapter = new DialogMemberAdapter(DialogMemberBean,Style);
         mSelectorBranchAdapter.setOnItemClickListener(this);
         rv_selector_branch.setAdapter(mSelectorBranchAdapter);
     }
 
     @Override
     public void onItemClick(int position) {
-        boolean temp = !DialogMemberBean.get(position).isSelector();
-        DialogMemberBean.get(position).setSelector(temp);
-//        for (int i = 0; i < DialogMemberBean.size(); i++) {
-//            if (i == position) {
-//                if (!DialogMemberBean.get(i).isSelector()) {
-//                    DialogMemberBean.get(i).setSelector(true);
-//                }
-//            } else {
-//                DialogMemberBean.get(i).setSelector(false);
-//            }
-//        }
+        if (Style == 1){
+            boolean temp = !DialogMemberBean.get(position).isSelector();
+            DialogMemberBean.get(position).setSelector(temp);
+        }else{
+            for (int i = 0; i < DialogMemberBean.size(); i++) {
+            if (i == position) {
+                if (!DialogMemberBean.get(i).isSelector()) {
+                    DialogMemberBean.get(i).setSelector(true);
+                }
+            } else {
+                DialogMemberBean.get(i).setSelector(false);
+            }
+        }
+        }
     }
 
     public interface OnSelectorListener {

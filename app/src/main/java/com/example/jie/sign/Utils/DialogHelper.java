@@ -19,6 +19,7 @@ import java.util.List;
  */
 
 public class DialogHelper {
+    private int style;
     private static final String TAG = DialogHelper.class.getSimpleName();
     private Context context;
     private List<DialogMemberBean> DialogMemberBean = new ArrayList<>();    //选择列表的数据
@@ -62,9 +63,13 @@ public class DialogHelper {
         return this;
     }
 
+    public DialogHelper setStyle(int style1) {
+        this.style = style1;
+        return this;
+    }
 
     public void showSelectorDialog() {
-        mDialogSelector = new DialogSelector(context, DialogMemberBean, new DialogSelector.OnSelectorListener() {
+        mDialogSelector = new DialogSelector(context, DialogMemberBean, style, new DialogSelector.OnSelectorListener() {
             @Override
             public void getSelectorData(List<DialogMemberBean> trees) {
                 mDialogSelector.dismiss();

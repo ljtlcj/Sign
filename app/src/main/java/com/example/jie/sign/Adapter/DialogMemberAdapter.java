@@ -10,6 +10,7 @@ import android.widget.TextView;
 import com.example.jie.sign.Bean.DialogMemberBean;
 import com.example.jie.sign.R;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -19,6 +20,8 @@ import java.util.List;
 public class DialogMemberAdapter extends RecyclerView.Adapter<DialogMemberAdapter.ViewHolder> {
     private List<DialogMemberBean> list;
     private OnItemClickListener mOnItemClickListener;
+    private ViewHolder mholder;
+    private final int style;
     static public class ViewHolder extends RecyclerView.ViewHolder {
         TextView name;
         TextView number;
@@ -30,8 +33,9 @@ public class DialogMemberAdapter extends RecyclerView.Adapter<DialogMemberAdapte
             box = itemView.findViewById(R.id.box);
         }
     }
-    public DialogMemberAdapter(List<DialogMemberBean> list) {
+    public DialogMemberAdapter(List<DialogMemberBean> list,int style1) {
         this.list = list ;
+        this.style = style1;
     }
 
     @Override
@@ -42,17 +46,28 @@ public class DialogMemberAdapter extends RecyclerView.Adapter<DialogMemberAdapte
     }
 
     @Override
-    public void onBindViewHolder(ViewHolder holder, final int position) {
+    public void onBindViewHolder(final ViewHolder holder, final int position) {
         DialogMemberBean lock = list.get(position);
         holder.name.setText(lock.getName());
         holder.number.setText(lock.getNumber());
-        holder.itemView.setOnClickListener(new View.OnClickListener() {
+        holder.box.setChecked(lock.isSelector());
+        holder.box.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mOnItemClickListener.onItemClick(position);
+                if (style==1){
+                    mOnItemClickListener.onItemClick(position);
+                }else{
+                    if (mholder==null){
+                        mholder = holder;
+                    }else{
+                        mholder.box.setChecked(false);
+                        mholder = holder;
+                    }
+                    mOnItemClickListener.onItemClick(position);
+                }
             }
         });
-        holder.box.setChecked(lock.isSelector());
+
     }
 
     @Override

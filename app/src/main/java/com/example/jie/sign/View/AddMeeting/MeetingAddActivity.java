@@ -26,6 +26,7 @@ public class MeetingAddActivity extends BaseActivity implements DialogHelper.OnH
     private TextView sign_etime;
     private TextView meeting_time;
     private TextView tv_member;
+    private TextView tv_location;
     private List<DialogMemberBean> mSimpleListItemEntity = new ArrayList<>();
     @Override
     public int getLayoutId() {
@@ -38,6 +39,7 @@ public class MeetingAddActivity extends BaseActivity implements DialogHelper.OnH
         sign_stime = findView(R.id.tv_sign_stime);
         meeting_time = findView(R.id.tv_meeting_time);
         tv_member = findView(R.id.tv_member);
+        tv_location = findView(R.id.tv_location);
     }
 
     @Override
@@ -46,13 +48,14 @@ public class MeetingAddActivity extends BaseActivity implements DialogHelper.OnH
         sign_stime.setOnClickListener(this);
         meeting_time.setOnClickListener(this);
         tv_member.setOnClickListener(this);
+        tv_location.setOnClickListener(this);
     }
 
     @Override
     public void initData() {
         setTitleCanBack();
         setTitle("添加会议");
-        for (int i = 0; i < 6; i++) {
+        for (int i = 0; i < 30; i++) {
             DialogMemberBean simpleListItemEntity = new DialogMemberBean();
             simpleListItemEntity.setNumber(i + "");
             simpleListItemEntity.setName("星期" + i);
@@ -74,7 +77,11 @@ public class MeetingAddActivity extends BaseActivity implements DialogHelper.OnH
                 selecttime(v,3);
                 break;
             case R.id.tv_member:
-                DialogHelper.create(this).setSelectorData(mSimpleListItemEntity).setSelectorListener(this)
+                DialogHelper.create(this).setSelectorData(mSimpleListItemEntity).setStyle(1).setSelectorListener(this)
+                        .showSelectorDialog();
+                break;
+            case R.id.tv_location:
+                DialogHelper.create(this).setSelectorData(mSimpleListItemEntity).setStyle(0).setSelectorListener(this)
                         .showSelectorDialog();
                 break;
             default:
