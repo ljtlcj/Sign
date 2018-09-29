@@ -46,10 +46,23 @@ public class MessageFragment extends BaseLazyFragment {
     @Override
     public void initData() {
         setTitle("消息");
-        for (int i = 0; i < 3; i++) {
-            MessageBean messageBean = new MessageBean("会议即将开始", "请于2018-9-9 16:30到锡科614开会");
-            list.add(messageBean);
-        }
+//        for (int i = 0; i < 3; i++) {
+//            MessageBean messageBean = new MessageBean("会议即将开始", "请于2018-9-9 16:30到锡科614开会");
+//            list.add(messageBean);
+//        }
+
+        MessageBean messageBean = new MessageBean("会议即将开始", "请于2018-11-12 16:30到锡科614开会");
+        MessageBean messageBean1 = new MessageBean("会议即将开始", "请于2018-12-9 18:30到田师212开会");
+        MessageBean messageBean2 = new MessageBean("会议即将开始", "请于2018-10-9 11:30到工楼B14会");
+        MessageBean messageBean3 = new MessageBean("会议结束", "2017-6-9 13:30-锡科504");
+        MessageBean messageBean4 = new MessageBean("会议结束", "2017-4-9 9:30-工楼B11");
+        list.add(messageBean);
+        list.add(messageBean1);
+        list.add(messageBean2);
+        list.add(messageBean3);
+        list.add(messageBean4);
+
+
         LinearLayoutManager layoutManager = new LinearLayoutManager(getContext());
         rv_list.setLayoutManager(layoutManager);
         rv_list.addItemDecoration(new SpaceItemDecoration(48, 24));

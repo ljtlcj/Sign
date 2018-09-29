@@ -3,11 +3,14 @@ package com.example.jie.sign.Fragment.Main;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.jie.sign.BaseTemplate.BaseLazyFragment;
 
 import com.example.jie.sign.R;
 import com.example.jie.sign.View.MeetingCheckActivity;
+import com.example.jie.sign.View.MeetingCheckDetailActivity;
+import com.example.jie.sign.View.MeetingCheckDetailMemberActivity;
 import com.example.jie.sign.View.MeetingRoomActivity;
 
 
@@ -18,8 +21,9 @@ import com.example.jie.sign.View.MeetingRoomActivity;
 public class ProjectFragment extends BaseLazyFragment {
 
 
-    private LinearLayout ly_meeting_check;
+    private LinearLayout ly_meeting_check;//查看会议
     private LinearLayout ly_check_meeting_room;//查看会议室
+    private LinearLayout ly_add_meeting;//添加会议室
 
     @Override
     public int getLayoutId() {
@@ -30,12 +34,14 @@ public class ProjectFragment extends BaseLazyFragment {
     public void initViews() {
         ly_meeting_check = findView(R.id.ly_meeting_check);
         ly_check_meeting_room = findView(R.id.ly_check_meeting_room);
+        ly_add_meeting=findView(R.id.ly_add_meeting);
     }
 
     @Override
     public void initListener() {
         ly_meeting_check.setOnClickListener(this);
         ly_check_meeting_room.setOnClickListener(this);
+        ly_add_meeting.setOnClickListener(this);
     }
 
     @Override
@@ -51,6 +57,9 @@ public class ProjectFragment extends BaseLazyFragment {
                 break;
             case R.id.ly_check_meeting_room:
                 startActivity(MeetingRoomActivity.class);
+                break;
+            case R.id.ly_add_meeting:
+                startActivity(MeetingCheckDetailActivity.class);
                 break;
             default:
                 break;

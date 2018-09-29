@@ -42,10 +42,19 @@ public class AllFragment extends BaseLazyFragment {
 
     @Override
     public void initData() {
-        for (int i = 0; i < 3; i++) {
-            MeetingCheckBean meetingCheckBean = new MeetingCheckBean("班会", "锡科61401", "2018-12-05 16:00", true);
-            lists.add(meetingCheckBean);
-        }
+//        for (int i = 0; i < 3; i++) {
+//            MeetingCheckBean meetingCheckBean = new MeetingCheckBean("班会", "锡科61401", "2018-12-05 16:00", true);
+//            lists.add(meetingCheckBean);
+//        }
+        MeetingCheckBean meetingCheckBean = new MeetingCheckBean("报告会", "锡科614", "2018-11-12 16:30", true);
+        MeetingCheckBean meetingCheckBean2 = new MeetingCheckBean("产品上线", "田师212", "2018-12-9 18:30", true);
+        MeetingCheckBean meetingCheckBean3 = new MeetingCheckBean("功能修改", "工楼B14", "2018-10-9 11:30", true);
+        MeetingCheckBean meetingCheckBean4 = new MeetingCheckBean("班会", "锡科504", "2017-6-9 13:30", true);
+        lists.add(meetingCheckBean);
+        lists.add(meetingCheckBean2);
+        lists.add(meetingCheckBean3);
+        lists.add(meetingCheckBean4);
+
         LinearLayoutManager layoutManager = new LinearLayoutManager(getContext());
         rv_list.setLayoutManager(layoutManager);
         rv_list.addItemDecoration(new SpaceItemDecoration(48, 24));

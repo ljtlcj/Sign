@@ -22,10 +22,12 @@ public class DialogMemberAdapter extends RecyclerView.Adapter<DialogMemberAdapte
     private OnItemClickListener mOnItemClickListener;
     private ViewHolder mholder;
     private final int style;
+
     static public class ViewHolder extends RecyclerView.ViewHolder {
         TextView name;
         TextView number;
         CheckBox box;
+
         public ViewHolder(View itemView) {
             super(itemView);
             name = itemView.findViewById(R.id.tv_name);
@@ -33,8 +35,9 @@ public class DialogMemberAdapter extends RecyclerView.Adapter<DialogMemberAdapte
             box = itemView.findViewById(R.id.box);
         }
     }
-    public DialogMemberAdapter(List<DialogMemberBean> list,int style1) {
-        this.list = list ;
+
+    public DialogMemberAdapter(List<DialogMemberBean> list, int style1) {
+        this.list = list;
         this.style = style1;
     }
 
@@ -54,12 +57,12 @@ public class DialogMemberAdapter extends RecyclerView.Adapter<DialogMemberAdapte
         holder.box.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (style==1){
+                if (style == 1) {
                     mOnItemClickListener.onItemClick(position);
-                }else{
-                    if (mholder==null){
+                } else {
+                    if (mholder == null) {
                         mholder = holder;
-                    }else{
+                    } else {
                         mholder.box.setChecked(false);
                         mholder = holder;
                     }

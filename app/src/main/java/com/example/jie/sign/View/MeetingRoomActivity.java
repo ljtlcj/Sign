@@ -46,10 +46,29 @@ public class MeetingRoomActivity extends BaseActivity {
         setTitleCanBack();
         setTitle("查看会议室");
         setEdit2("添加");
-        for (int i = 0; i < 5; i++) {
-            MeetingRoomBean meetingRoomBean = new MeetingRoomBean("锡科61401", "查看详情");
-            list.add(meetingRoomBean);
-        }
+//        for (int i = 0; i < 5; i++) {
+//            MeetingRoomBean meetingRoomBean = new MeetingRoomBean("锡科61401", "查看详情");
+//            list.add(meetingRoomBean);
+//        }
+        MeetingRoomBean meetingRoomBean = new MeetingRoomBean("锡科614", "查看详情");
+        MeetingRoomBean meetingRoomBean2 = new MeetingRoomBean("田师212", "查看详情");
+        MeetingRoomBean meetingRoomBean3 = new MeetingRoomBean("工楼B14", "查看详情");
+        MeetingRoomBean meetingRoomBean4 = new MeetingRoomBean("锡科503", "查看详情");
+        MeetingRoomBean meetingRoomBean5 = new MeetingRoomBean("教科440", "查看详情");
+        MeetingRoomBean meetingRoomBean6 = new MeetingRoomBean("工楼A10", "查看详情");
+        MeetingRoomBean meetingRoomBean7= new MeetingRoomBean("锡科201", "查看详情");
+        MeetingRoomBean meetingRoomBean8= new MeetingRoomBean("工楼C12", "查看详情");
+        MeetingRoomBean meetingRoomBean9= new MeetingRoomBean("锡科208", "查看详情");
+        list.add(meetingRoomBean);
+        list.add(meetingRoomBean2);
+        list.add(meetingRoomBean3);
+        list.add(meetingRoomBean4);
+        list.add(meetingRoomBean5);
+        list.add(meetingRoomBean6);
+        list.add(meetingRoomBean7);
+        list.add(meetingRoomBean8);
+        list.add(meetingRoomBean9);
+
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
         rv_list.setLayoutManager(layoutManager);
         adapter = new MeetingRoomAdapter(list);
@@ -64,7 +83,7 @@ public class MeetingRoomActivity extends BaseActivity {
 
     @Override
     public void processClick(View v) {
-        switch (v.getId()){
+        switch (v.getId()) {
             case R.id.tv_edit2:
                 startActivity(MeetingRoomAddActivity.class);
                 break;
