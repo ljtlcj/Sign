@@ -1,5 +1,7 @@
 package com.example.jie.sign.View.AddMeeting;
 
+import android.content.Intent;
+import android.support.v7.widget.LinearLayoutManager;
 import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
@@ -7,27 +9,44 @@ import android.widget.TextView;
 import com.codbking.widget.DatePickDialog;
 import com.codbking.widget.OnSureLisener;
 import com.codbking.widget.bean.DateType;
+import com.example.jie.sign.Adapter.MeetingCheckAdapter;
 import com.example.jie.sign.BaseTemplate.BaseActivity;
+import com.example.jie.sign.Bean.AllMeetingNewsBean;
 import com.example.jie.sign.Bean.DialogMemberBean;
+import com.example.jie.sign.Bean.Stuff;
+import com.example.jie.sign.Controller.LoginController;
+import com.example.jie.sign.Manager.InterfaceManger;
 import com.example.jie.sign.R;
 import com.example.jie.sign.Utils.DialogHelper;
+import com.example.jie.sign.Utils.OnItemClickListener;
+import com.example.jie.sign.Utils.RetrofitUtils;
+import com.example.jie.sign.Utils.SpaceItemDecoration;
+import com.example.jie.sign.View.MeetingCheckDetailActivity;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+
+import okhttp3.MultipartBody;
+import okhttp3.RequestBody;
 
 /**
  * Created by jie on 2018/9/9.
  */
 
 public class MeetingAddActivity extends BaseActivity implements DialogHelper.OnHelperSelectorListener  {
+    private List<Stuff> lists1 = new ArrayList<Stuff>();//listview数据集
     private TextView sign_stime;
     private TextView sign_etime;
     private TextView meeting_time;
     private TextView tv_member;
     private TextView tv_location;
     private List<DialogMemberBean> mSimpleListItemEntity = new ArrayList<>();
+
+    private String temp;
     @Override
     public int getLayoutId() {
         return R.layout.activity_meeting_add;
@@ -55,13 +74,45 @@ public class MeetingAddActivity extends BaseActivity implements DialogHelper.OnH
     public void initData() {
         setTitleCanBack();
         setTitle("添加会议");
-        for (int i = 0; i < 30; i++) {
-            DialogMemberBean simpleListItemEntity = new DialogMemberBean();
-            simpleListItemEntity.setNumber(i + "");
-            simpleListItemEntity.setName("星期" + i);
-            simpleListItemEntity.setSelector(false);
-            mSimpleListItemEntity.add(simpleListItemEntity);
-        }
+        getdata();
+//        for (int i = 0; i < 30; i++) {
+//            DialogMemberBean simpleListItemEntity = new DialogMemberBean();
+//            simpleListItemEntity.setNumber(i + "");
+//            simpleListItemEntity.setName("星期" + i);
+//            simpleListItemEntity.setSelector(false);
+//            mSimpleListItemEntity.add(simpleListItemEntity);
+//        }
+    }
+
+    private void getdata() {
+        List<String> photos = new ArrayList<>();
+        List<MultipartBody.Part> parts = null;
+        Map<String, RequestBody> params = new HashMap<>();
+        params.put("unit_id", RetrofitUtils.convertToRequestBody("210"));
+        LoginController.member_and_group2(params, parts, new InterfaceManger.OnRequestListener() {
+            @Override
+            public void onSuccess(Object success) {
+                lists1 = Stuff.arrayStuffFromData((String) success);
+                for (Stuff stuff : lists1) {
+                    DialogMemberBean simpleListItemEntity = new DialogMemberBean();
+                    simpleListItemEntity.setSelector(false);
+                    simpleListItemEntity.setNumber(stuff.getCard());
+                    simpleListItemEntity.setName(stuff.getName());
+                    simpleListItemEntity.setId(stuff.getId());
+                    mSimpleListItemEntity.add(simpleListItemEntity);
+                }
+            }
+
+            @Override
+            public void onError(String error) {
+                showToast(error);
+            }
+
+            @Override
+            public void onComplete() {
+
+            }
+        });
     }
 
     @Override
@@ -121,5 +172,9 @@ public class MeetingAddActivity extends BaseActivity implements DialogHelper.OnH
     @Override
     public void getSelectorPosition(List<DialogMemberBean> trees) {
         Log.e("getSelectorPosition:",String.valueOf(trees));
+        temp = trees.get(0).getId();
+        for (int i = 1;i<lists1.size();i++){
+            temp = temp+","+lists1.get(i).getId();
+        }
     }
 }

@@ -215,11 +215,9 @@ public class LoginController {
                     return;
                 }
                 try {
-                    Log.e("gggggggggggg: ", String.valueOf(response.body()));
                     String body = response.body().string();
-                    Log.e("ggggggggggggggg: ", response.body().string());
+                    Log.e("onResponse:",body );
                     Object object = body;
-                    Log.e("gggggggggggggggggg: ", String.valueOf(object));
                     if (!body.contains("error")) {
                         listener.onSuccess(object);
                     } else {
