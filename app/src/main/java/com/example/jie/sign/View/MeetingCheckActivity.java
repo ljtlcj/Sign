@@ -35,18 +35,18 @@ public class MeetingCheckActivity extends BaseActivity implements ViewPager.OnPa
 
     @Override
     public void initViews() {
-        tv_all = findView(R.id.tv_all);
-        tv_unfinished = findView(R.id.tv_unfinished);
-        tv_finished = findView(R.id.tv_finished);
+//        tv_all = findView(R.id.tv_all);
+//        tv_unfinished = findView(R.id.tv_unfinished);
+//        tv_finished = findView(R.id.tv_finished);
         vp_main = findView(R.id.vp_main);
     }
 
     @Override
     public void initListener() {
-        tv_all.setOnClickListener(this);
-        tv_unfinished.setOnClickListener(this);
-        tv_finished.setOnClickListener(this);
-        vp_main.setOnPageChangeListener(this);
+//        tv_all.setOnClickListener(this);
+//        tv_unfinished.setOnClickListener(this);
+//        tv_finished.setOnClickListener(this);
+//        vp_main.setOnPageChangeListener(this);
     }
 
     @Override
@@ -59,17 +59,18 @@ public class MeetingCheckActivity extends BaseActivity implements ViewPager.OnPa
     private void initFragments() {
         list = new ArrayList<>();
         list.add(new AllFragment());
-        list.add(new UnFinishedFragment());
-        list.add(new FinishedFragment());
+//        list.add(new UnFinishedFragment());
+//        list.add(new FinishedFragment());
         adapter = new MainAdapter(getSupportFragmentManager(), list);
         vp_main.setAdapter(adapter);
-        vp_main.setOffscreenPageLimit(2);
-        Light(0);
+//        vp_main.setOffscreenPageLimit(2);
+//        Light(0);
     }
 
     @Override
     public void processClick(View v) {
         switch (v.getId()) {
+            /*
             case R.id.tv_all:
                 Light(0);
                 break;
@@ -81,6 +82,7 @@ public class MeetingCheckActivity extends BaseActivity implements ViewPager.OnPa
                 break;
             default:
                 break;
+                */
         }
     }
 
