@@ -32,6 +32,7 @@
                     android:textSize="12sp" />
 
                 <EditText
+                    android:id="@+id/et_meetingname"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -102,8 +103,8 @@
                         android:text="会议地点："
                         android:textSize="12sp" />
 
-                    <TextView
-                        android:id="@+id/tv_location"
+                    <EditText
+                        android:id="@+id/et_location"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -113,12 +114,12 @@
                         android:paddingTop="12dp"
                         android:textSize="12sp" />
 
-                    <ImageView
-                        android:layout_width="25dp"
-                        android:layout_height="25dp"
-                        android:layout_gravity="center"
-                        android:layout_marginRight="6dp"
-                        android:src="@drawable/commom_ic_grey_arrow" />
+                    <!--<ImageView-->
+                        <!--android:layout_width="25dp"-->
+                        <!--android:layout_height="25dp"-->
+                        <!--android:layout_gravity="center"-->
+                        <!--android:layout_marginRight="6dp"-->
+                        <!--android:src="@drawable/commom_ic_grey_arrow" />-->
                 </LinearLayout>
 
                 <include layout="@layout/include_common_split_line_hor" />
@@ -158,110 +159,110 @@
                         android:src="@drawable/commom_ic_grey_arrow" />
                 </LinearLayout>
 
-                <include layout="@layout/include_common_split_line_hor" />
+                <!--<include layout="@layout/include_common_split_line_hor" />-->
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:background="@color/colorWhite"
-                    android:orientation="horizontal">
+                <!--<LinearLayout-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:layout_gravity="center"-->
+                    <!--android:background="@color/colorWhite"-->
+                    <!--android:orientation="horizontal">-->
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="12dp"
-                        android:paddingBottom="12dp"
-                        android:paddingTop="12dp"
-                        android:text="会议地点："
-                        android:textSize="12sp"
-                        android:visibility="invisible" />
+                    <!--<TextView-->
+                        <!--android:layout_width="wrap_content"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:layout_marginLeft="12dp"-->
+                        <!--android:paddingBottom="12dp"-->
+                        <!--android:paddingTop="12dp"-->
+                        <!--android:text="会议地点："-->
+                        <!--android:textSize="12sp"-->
+                        <!--android:visibility="invisible" />-->
 
-                    <TextView
-                        android:id="@+id/tv_sign_etime"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:background="@null"
-                        android:hint="结束时间"
-                        android:paddingBottom="12dp"
-                        android:paddingTop="12dp"
-                        android:textSize="12sp" />
+                    <!--<TextView-->
+                        <!--android:id="@+id/tv_sign_etime"-->
+                        <!--android:layout_width="0dp"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:layout_weight="1"-->
+                        <!--android:background="@null"-->
+                        <!--android:hint="结束时间"-->
+                        <!--android:paddingBottom="12dp"-->
+                        <!--android:paddingTop="12dp"-->
+                        <!--android:textSize="12sp" />-->
 
-                    <ImageView
-                        android:layout_width="25dp"
-                        android:layout_height="25dp"
-                        android:layout_gravity="center"
-                        android:layout_marginRight="6dp"
-                        android:src="@drawable/commom_ic_grey_arrow" />
-                </LinearLayout>
+                    <!--<ImageView-->
+                        <!--android:layout_width="25dp"-->
+                        <!--android:layout_height="25dp"-->
+                        <!--android:layout_gravity="center"-->
+                        <!--android:layout_marginRight="6dp"-->
+                        <!--android:src="@drawable/commom_ic_grey_arrow" />-->
+                <!--</LinearLayout>-->
 
-                <include layout="@layout/include_common_split_line_hor" />
+                <!--<include layout="@layout/include_common_split_line_hor" />-->
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:background="@color/colorWhite"
-                    android:orientation="horizontal">
+                <!--<LinearLayout-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:layout_gravity="center"-->
+                    <!--android:background="@color/colorWhite"-->
+                    <!--android:orientation="horizontal">-->
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="12dp"
-                        android:paddingBottom="12dp"
-                        android:paddingTop="12dp"
-                        android:text="会议开始时间："
-                        android:textSize="12sp" />
+                    <!--<TextView-->
+                        <!--android:layout_width="wrap_content"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:layout_marginLeft="12dp"-->
+                        <!--android:paddingBottom="12dp"-->
+                        <!--android:paddingTop="12dp"-->
+                        <!--android:text="会议开始时间："-->
+                        <!--android:textSize="12sp" />-->
 
-                    <TextView
-                        android:id="@+id/tv_meeting_time"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:background="@null"
-                        android:hint="时间"
-                        android:paddingBottom="12dp"
-                        android:paddingTop="12dp"
-                        android:textSize="12sp" />
+                    <!--<TextView-->
+                        <!--android:id="@+id/tv_meeting_time"-->
+                        <!--android:layout_width="0dp"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:layout_weight="1"-->
+                        <!--android:background="@null"-->
+                        <!--android:hint="时间"-->
+                        <!--android:paddingBottom="12dp"-->
+                        <!--android:paddingTop="12dp"-->
+                        <!--android:textSize="12sp" />-->
 
-                    <ImageView
-                        android:layout_width="25dp"
-                        android:layout_height="25dp"
-                        android:layout_gravity="center"
-                        android:layout_marginRight="6dp"
-                        android:src="@drawable/commom_ic_grey_arrow" />
-                </LinearLayout>
+                    <!--<ImageView-->
+                        <!--android:layout_width="25dp"-->
+                        <!--android:layout_height="25dp"-->
+                        <!--android:layout_gravity="center"-->
+                        <!--android:layout_marginRight="6dp"-->
+                        <!--android:src="@drawable/commom_ic_grey_arrow" />-->
+                <!--</LinearLayout>-->
 
-                <include layout="@layout/include_common_split_line_hor" />
+                <!--<include layout="@layout/include_common_split_line_hor" />-->
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:background="@color/colorWhite"
-                    android:orientation="horizontal">
+                <!--<LinearLayout-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:layout_gravity="center"-->
+                    <!--android:background="@color/colorWhite"-->
+                    <!--android:orientation="horizontal">-->
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="12dp"
-                        android:paddingBottom="12dp"
-                        android:paddingTop="12dp"
-                        android:text="会议发起人："
-                        android:textSize="12sp" />
+                    <!--<TextView-->
+                        <!--android:layout_width="wrap_content"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:layout_marginLeft="12dp"-->
+                        <!--android:paddingBottom="12dp"-->
+                        <!--android:paddingTop="12dp"-->
+                        <!--android:text="会议发起人："-->
+                        <!--android:textSize="12sp" />-->
 
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:background="@null"
-                        android:hint="会议发起人"
-                        android:paddingBottom="12dp"
-                        android:paddingTop="12dp"
-                        android:textSize="12sp" />
+                    <!--<TextView-->
+                        <!--android:layout_width="0dp"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:layout_weight="1"-->
+                        <!--android:background="@null"-->
+                        <!--android:hint="会议发起人"-->
+                        <!--android:paddingBottom="12dp"-->
+                        <!--android:paddingTop="12dp"-->
+                        <!--android:textSize="12sp" />-->
 
-                </LinearLayout>
+                <!--</LinearLayout>-->
 
                 <include layout="@layout/include_common_split_line_hor" />
 
@@ -282,6 +283,7 @@
                         android:textSize="12sp" />
 
                     <EditText
+                        android:id="@+id/et_content"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -292,34 +294,34 @@
 
                 </LinearLayout>
 
-                <include layout="@layout/include_common_split_line_hor" />
+                <!--<include layout="@layout/include_common_split_line_hor" />-->
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:background="@color/colorWhite"
-                    android:orientation="horizontal">
+                <!--<LinearLayout-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:layout_gravity="center"-->
+                    <!--android:background="@color/colorWhite"-->
+                    <!--android:orientation="horizontal">-->
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="12dp"
-                        android:paddingBottom="12dp"
-                        android:paddingTop="12dp"
-                        android:text="会议负责人："
-                        android:textSize="12sp" />
+                    <!--<TextView-->
+                        <!--android:layout_width="wrap_content"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:layout_marginLeft="12dp"-->
+                        <!--android:paddingBottom="12dp"-->
+                        <!--android:paddingTop="12dp"-->
+                        <!--android:text="会议负责人："-->
+                        <!--android:textSize="12sp" />-->
 
-                    <EditText
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:background="@null"
-                        android:paddingBottom="12dp"
-                        android:paddingTop="12dp"
-                        android:textSize="12sp" />
+                    <!--<EditText-->
+                        <!--android:layout_width="0dp"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:layout_weight="1"-->
+                        <!--android:background="@null"-->
+                        <!--android:paddingBottom="12dp"-->
+                        <!--android:paddingTop="12dp"-->
+                        <!--android:textSize="12sp" />-->
 
-                </LinearLayout>
+                <!--</LinearLayout>-->
 
                 <include layout="@layout/include_common_split_line_hor" />
 

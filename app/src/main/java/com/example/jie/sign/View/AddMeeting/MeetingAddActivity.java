@@ -1,9 +1,12 @@
 package com.example.jie.sign.View.AddMeeting;
 
 import android.content.Intent;
+import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import com.codbking.widget.DatePickDialog;
@@ -30,6 +33,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
 import okhttp3.MultipartBody;
 import okhttp3.RequestBody;
 
@@ -37,16 +42,29 @@ import okhttp3.RequestBody;
  * Created by jie on 2018/9/9.
  */
 
-public class MeetingAddActivity extends BaseActivity implements DialogHelper.OnHelperSelectorListener  {
+public class MeetingAddActivity extends BaseActivity implements DialogHelper.OnHelperSelectorListener {
+    @BindView(R.id.et_meetingname)
+    EditText etMeetingname;
+    @BindView(R.id.tv_member)
+    TextView tvMember;
+    @BindView(R.id.et_location)
+    EditText etLocation;
+    @BindView(R.id.tv_sign_stime)
+    TextView tvSignStime;
+    @BindView(R.id.et_content)
+    EditText etContent;
+    @BindView(R.id.bt_submit)
+    Button btSubmit;
     private List<Stuff> lists1 = new ArrayList<Stuff>();//listview数据集
     private TextView sign_stime;
     private TextView sign_etime;
     private TextView meeting_time;
     private TextView tv_member;
-    private TextView tv_location;
+    private EditText et_location;
     private List<DialogMemberBean> mSimpleListItemEntity = new ArrayList<>();
 
     private String temp;
+
     @Override
     public int getLayoutId() {
         return R.layout.activity_meeting_add;
@@ -54,20 +72,20 @@ public class MeetingAddActivity extends BaseActivity implements DialogHelper.OnH
 
     @Override
     public void initViews() {
-        sign_etime = findView(R.id.tv_sign_etime);
+        ButterKnife.bind(this);
         sign_stime = findView(R.id.tv_sign_stime);
-        meeting_time = findView(R.id.tv_meeting_time);
         tv_member = findView(R.id.tv_member);
-        tv_location = findView(R.id.tv_location);
+        et_location = findView(R.id.et_location);
     }
 
     @Override
     public void initListener() {
-        sign_etime.setOnClickListener(this);
+//        sign_etime.setOnClickListener(this);
         sign_stime.setOnClickListener(this);
-        meeting_time.setOnClickListener(this);
+//        meeting_time.setOnClickListener(this);
         tv_member.setOnClickListener(this);
-        tv_location.setOnClickListener(this);
+        et_location.setOnClickListener(this);
+        btSubmit.setOnClickListener(this);
     }
 
     @Override
@@ -117,30 +135,61 @@ public class MeetingAddActivity extends BaseActivity implements DialogHelper.OnH
 
     @Override
     public void processClick(View v) {
-        switch (v.getId()){
-            case R.id.tv_sign_etime:
-                selecttime(v,1);
+        switch (v.getId()) {
+//            case R.id.tv_sign_etime:
+//                selecttime(v,1);
+//                break;
+            case R.id.bt_submit:
+                submit();
                 break;
             case R.id.tv_sign_stime:
-                selecttime(v,2);
+                selecttime(v, 2);
                 break;
-            case R.id.tv_meeting_time:
-                selecttime(v,3);
-                break;
+//            case R.id.tv_meeting_time:
+//                selecttime(v,3);
+//                break;
             case R.id.tv_member:
                 DialogHelper.create(this).setSelectorData(mSimpleListItemEntity).setStyle(1).setSelectorListener(this)
                         .showSelectorDialog();
                 break;
-            case R.id.tv_location:
-                DialogHelper.create(this).setSelectorData(mSimpleListItemEntity).setStyle(0).setSelectorListener(this)
-                        .showSelectorDialog();
-                break;
+//            case R.id.tv_location:
+//                DialogHelper.create(this).setSelectorData(mSimpleListItemEntity).setStyle(0).setSelectorListener(this)
+//                        .showSelectorDialog();
+//                break;
             default:
                 break;
         }
     }
 
-    private void selecttime(final View view,final int type) {
+    private void submit() {
+        Log.e("submit: ",etLocation.getText().toString().trim()+" "+tvSignStime.getText().toString().trim()+" "+etMeetingname.getText().toString().trim()+" "+etContent.getText().toString().trim()+" "+temp );
+        List<String> photos = new ArrayList<>();
+        List<MultipartBody.Part> parts = null;
+        Map<String, RequestBody> params = new HashMap<>();
+        params.put("room_id", RetrofitUtils.convertToRequestBody(etLocation.getText().toString().trim()));
+        params.put("meeting_time", RetrofitUtils.convertToRequestBody(tvSignStime.getText().toString().trim()));
+        params.put("meeting_name", RetrofitUtils.convertToRequestBody(etMeetingname.getText().toString().trim()));
+        params.put("meeting_content", RetrofitUtils.convertToRequestBody(etContent.getText().toString().trim()));
+        params.put("idarr", RetrofitUtils.convertToRequestBody(temp));
+
+        LoginController.meeting_add2(params, parts, new InterfaceManger.OnRequestListener() {
+            @Override
+            public void onSuccess(Object success) {
+                showToast("添加成功");
+            }
+
+            @Override
+            public void onError(String error) {
+                showToast(error);
+            }
+
+            @Override
+            public void onComplete() {
+            }
+        });
+    }
+
+    private void selecttime(final View view, final int type) {
         DatePickDialog dialog = new DatePickDialog(this);
         //设置上下年分限制
         dialog.setYearLimt(8);
@@ -156,13 +205,13 @@ public class MeetingAddActivity extends BaseActivity implements DialogHelper.OnH
         dialog.setOnSureLisener(new OnSureLisener() {
             @Override
             public void onSure(Date date) {
-               if (type==1){
-                   sign_etime.setText(new SimpleDateFormat("yyyy-MM-dd HH:mm").format(date));
-               }else if (type == 2){
-                   sign_stime.setText(new SimpleDateFormat("yyyy-MM-dd HH:mm").format(date));
-               }else if (type == 3){
-                   meeting_time.setText(new SimpleDateFormat("yyyy-MM-dd HH:mm").format(date));
-               }
+                if (type == 1) {
+                    sign_etime.setText(new SimpleDateFormat("yyyy-MM-dd HH:mm").format(date));
+                } else if (type == 2) {
+                    sign_stime.setText(new SimpleDateFormat("yyyy-MM-dd HH:mm").format(date));
+                } else if (type == 3) {
+                    meeting_time.setText(new SimpleDateFormat("yyyy-MM-dd HH:mm").format(date));
+                }
             }
         });
         dialog.show();
@@ -171,10 +220,17 @@ public class MeetingAddActivity extends BaseActivity implements DialogHelper.OnH
 
     @Override
     public void getSelectorPosition(List<DialogMemberBean> trees) {
-        Log.e("getSelectorPosition:",String.valueOf(trees));
+        Log.e("getSelectorPosition:", String.valueOf(trees));
         temp = trees.get(0).getId();
-        for (int i = 1;i<lists1.size();i++){
-            temp = temp+","+lists1.get(i).getId();
+        for (int i = 1; i < trees.size(); i++) {
+            temp = temp + "," + trees.get(i).getId();
         }
+    }
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        // TODO: add setContentView(...) invocation
+        ButterKnife.bind(this);
     }
 }
