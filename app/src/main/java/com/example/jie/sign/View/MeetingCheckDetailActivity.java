@@ -115,6 +115,7 @@ public class MeetingCheckDetailActivity extends BaseActivity {
                 break;
             default:
                 break;
+
         }
     }
 
