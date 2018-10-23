@@ -65,5 +65,17 @@ public class RetrofitUtils {
         @Multipart
         @POST("Conference/membermeeting2")
         Call<ResponseBody> membermeeting2(@PartMap Map<String, RequestBody> map, @Part List<MultipartBody.Part> parts);
+
+        @Multipart
+        @POST("Conference/all_member2")
+        Call<ResponseBody> all_member2(@PartMap Map<String, RequestBody> map, @Part List<MultipartBody.Part> parts);
+
+        @Multipart
+        @POST("Conference/arrival_member2")
+        Call<ResponseBody> arrival_member2(@PartMap Map<String, RequestBody> map, @Part List<MultipartBody.Part> parts);
+
+        @Multipart
+        @POST("Conference/non_arrival_member2")
+        Call<ResponseBody> non_arrival_member2(@PartMap Map<String, RequestBody> map, @Part List<MultipartBody.Part> parts);
     }
 }

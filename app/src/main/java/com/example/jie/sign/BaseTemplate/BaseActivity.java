@@ -21,6 +21,8 @@ import com.example.jie.sign.R;
 import java.util.ArrayList;
 import java.util.List;
 
+import butterknife.ButterKnife;
+
 public abstract class BaseActivity extends AppCompatActivity implements View.OnClickListener {
 
     private SparseArray<View> mViews;

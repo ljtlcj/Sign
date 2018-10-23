@@ -41,4 +41,7 @@ dependencies {
     compile 'com.teprinciple:updateapputils:1.3'
     compile 'com.android.support:cardview-v7:26.+'
     compile 'com.github.codbking:PickTime:v1.0.1'
+
+    compile 'com.jakewharton:butterknife:8.6.0'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:8.6.0'
 }

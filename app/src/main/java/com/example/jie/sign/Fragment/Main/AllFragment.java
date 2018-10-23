@@ -1,5 +1,6 @@
 package com.example.jie.sign.Fragment.Main;
 
+import android.content.Intent;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
@@ -69,7 +70,12 @@ public class AllFragment extends BaseLazyFragment {
                 adapter.setOnItemClickListener(new OnItemClickListener() {
                     @Override
                     public void onItemClick(View view, int position) {
-                        startActivity(MeetingCheckDetailActivity.class);
+                        ArrayList<AllMeetingNewsBean> te_list = new ArrayList<AllMeetingNewsBean>();
+                        AllMeetingNewsBean allMeetingNewsBean = lists1.get(position);
+                        te_list.add(allMeetingNewsBean);
+                        Intent intent = new Intent(getActivity(), MeetingCheckDetailActivity.class);
+                        intent.putParcelableArrayListExtra("data", te_list);
+                        startActivity(intent);
                     }
                 });
             }

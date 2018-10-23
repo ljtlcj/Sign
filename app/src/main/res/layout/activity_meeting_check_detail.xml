@@ -33,6 +33,7 @@
                     android:textSize="12sp" />
 
                 <TextView
+                    android:id="@+id/meeting_name"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -170,6 +171,7 @@
                     android:textSize="12sp" />
 
                 <TextView
+                    android:id="@+id/Meeting_local"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -198,6 +200,7 @@
                     android:textSize="12sp" />
 
                 <TextView
+                    android:id="@+id/Meeting_time"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -207,6 +210,63 @@
                     android:textSize="12sp" />
             </LinearLayout>
 
+            <!--<include layout="@layout/include_common_split_line_hor" />-->
+            <include layout="@layout/include_common_split_line_hor" />
+
+            <!--<LinearLayout-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_gravity="center"-->
+            <!--android:background="@color/colorWhite"-->
+            <!--android:orientation="horizontal">-->
+
+            <!--<TextView-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_marginLeft="12dp"-->
+            <!--android:paddingBottom="12dp"-->
+            <!--android:paddingTop="12dp"-->
+            <!--android:text="会议开始时间："-->
+            <!--android:textSize="12sp" />-->
+
+            <!--<TextView-->
+            <!--android:layout_width="0dp"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_weight="1"-->
+            <!--android:background="@null"-->
+            <!--android:paddingBottom="12dp"-->
+            <!--android:paddingTop="12dp"-->
+            <!--android:textSize="12sp" />-->
+            <!--</LinearLayout>-->
+
+            <!--<include layout="@layout/include_common_split_line_hor" />-->
+
+            <!--<LinearLayout-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_gravity="center"-->
+            <!--android:background="@color/colorWhite"-->
+            <!--android:orientation="horizontal">-->
+
+            <!--<TextView-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_marginLeft="12dp"-->
+            <!--android:paddingBottom="12dp"-->
+            <!--android:paddingTop="12dp"-->
+            <!--android:text="会议发起人："-->
+            <!--android:textSize="12sp" />-->
+
+            <!--<TextView-->
+            <!--android:layout_width="0dp"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_weight="1"-->
+            <!--android:background="@null"-->
+            <!--android:paddingBottom="12dp"-->
+            <!--android:paddingTop="12dp"-->
+            <!--android:textSize="12sp" />-->
+            <!--</LinearLayout>-->
+
             <include layout="@layout/include_common_split_line_hor" />
 
             <LinearLayout
@@ -215,6 +275,61 @@
                 android:layout_gravity="center"
                 android:background="@color/colorWhite"
                 android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="12dp"
+                    android:paddingBottom="12dp"
+                    android:paddingTop="12dp"
+                    android:text="会议主题："
+                    android:textSize="12sp" />
+
+                <TextView
+                    android:id="@+id/meeting_content"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@null"
+                    android:paddingBottom="12dp"
+                    android:paddingTop="12dp"
+                    android:textSize="12sp" />
+            </LinearLayout>
+
+            <!--<include layout="@layout/include_common_split_line_hor" />-->
+
+            <!--<LinearLayout-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_gravity="center"-->
+            <!--android:background="@color/colorWhite"-->
+            <!--android:orientation="horizontal">-->
+
+            <!--<TextView-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_marginLeft="12dp"-->
+            <!--android:paddingBottom="12dp"-->
+            <!--android:paddingTop="12dp"-->
+            <!--android:text="会议负责人："-->
+            <!--android:textSize="12sp" />-->
+
+            <!--<TextView-->
+            <!--android:layout_width="0dp"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_weight="1"-->
+            <!--android:background="@null"-->
+            <!--android:paddingBottom="12dp"-->
+            <!--android:paddingTop="12dp"-->
+            <!--android:textSize="12sp" />-->
+            <!--</LinearLayout>-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:background="@color/colorWhite"
+                android:orientation="horizontal"
+                android:visibility="invisible">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -226,6 +341,7 @@
                     android:textSize="12sp" />
 
                 <TextView
+                    android:id="@+id/id_id"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -235,203 +351,7 @@
                     android:textSize="12sp" />
             </LinearLayout>
 
-            <include layout="@layout/include_common_split_line_hor" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:background="@color/colorWhite"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="12dp"
-                    android:paddingBottom="12dp"
-                    android:paddingTop="12dp"
-                    android:text="会议开始时间："
-                    android:textSize="12sp" />
-
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:background="@null"
-                    android:paddingBottom="12dp"
-                    android:paddingTop="12dp"
-                    android:textSize="12sp" />
-            </LinearLayout>
-
-            <include layout="@layout/include_common_split_line_hor" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:background="@color/colorWhite"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="12dp"
-                    android:paddingBottom="12dp"
-                    android:paddingTop="12dp"
-                    android:text="会议发起人："
-                    android:textSize="12sp" />
-
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:background="@null"
-                    android:paddingBottom="12dp"
-                    android:paddingTop="12dp"
-                    android:textSize="12sp" />
-            </LinearLayout>
-
-            <include layout="@layout/include_common_split_line_hor" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:background="@color/colorWhite"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="12dp"
-                    android:paddingBottom="12dp"
-                    android:paddingTop="12dp"
-                    android:text="会议主题："
-                    android:textSize="12sp" />
-
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:background="@null"
-                    android:paddingBottom="12dp"
-                    android:paddingTop="12dp"
-                    android:textSize="12sp" />
-            </LinearLayout>
-
-            <include layout="@layout/include_common_split_line_hor" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:background="@color/colorWhite"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="12dp"
-                    android:paddingBottom="12dp"
-                    android:paddingTop="12dp"
-                    android:text="会议主题："
-                    android:textSize="12sp" />
-
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:background="@null"
-                    android:paddingBottom="12dp"
-                    android:paddingTop="12dp"
-                    android:textSize="12sp" />
-            </LinearLayout>
-
-            <include layout="@layout/include_common_split_line_hor" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:background="@color/colorWhite"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="12dp"
-                    android:paddingBottom="12dp"
-                    android:paddingTop="12dp"
-                    android:text="会议负责人："
-                    android:textSize="12sp" />
-
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:background="@null"
-                    android:paddingBottom="12dp"
-                    android:paddingTop="12dp"
-                    android:textSize="12sp" />
-            </LinearLayout>
-
-            <include layout="@layout/include_common_split_line_hor" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:background="@color/colorWhite"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="12dp"
-                    android:paddingBottom="12dp"
-                    android:paddingTop="12dp"
-                    android:text="创建人："
-                    android:textSize="12sp" />
-
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:background="@null"
-                    android:paddingBottom="12dp"
-                    android:paddingTop="12dp"
-                    android:textSize="12sp" />
-            </LinearLayout>
-
-            <include layout="@layout/include_common_split_line_hor" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:background="@color/colorWhite"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="12dp"
-                    android:paddingBottom="12dp"
-                    android:paddingTop="12dp"
-                    android:text="创建时间："
-                    android:textSize="12sp" />
-
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:background="@null"
-                    android:paddingBottom="12dp"
-                    android:paddingTop="12dp"
-                    android:textSize="12sp" />
-            </LinearLayout>
-
-            <include layout="@layout/include_common_split_line_hor" />
+            <!--<include layout="@layout/include_common_split_line_hor" />-->
         </LinearLayout>
     </ScrollView>
 
