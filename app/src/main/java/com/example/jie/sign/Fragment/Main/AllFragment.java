@@ -63,11 +63,11 @@ public class AllFragment extends BaseLazyFragment {
         LoginController.membermeeting2(params, parts, new InterfaceManger.OnRequestListener() {
             @Override
             public void onSuccess(Object success) {
+                LinearLayoutManager layoutManager = new LinearLayoutManager(getContext());
+                 rv_list.setLayoutManager(layoutManager);
+                 rv_list.addItemDecoration(new SpaceItemDecoration(48,24));
                 lists1 = AllMeetingNewsBean.arrayAllMeetingNewsBeanFromData((String)success);
-                Log.e("onSuccess: ",String.valueOf(lists1));
-//                AllMeetingNewsBean allMeetingNewsBean = (AllMeetingNewsBean) success;
                 adapter = new MeetingCheckAdapter(lists1);
-//                    adapter = new ProjectChoiceAdapter(ProjectNewChoiceActivity.this, lists);
                 rv_list.setAdapter(adapter);
             }
 
