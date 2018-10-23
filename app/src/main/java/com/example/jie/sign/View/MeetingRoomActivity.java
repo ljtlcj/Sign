@@ -1,19 +1,33 @@
 package com.example.jie.sign.View;
 
+import android.content.Intent;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.example.jie.sign.Adapter.MeetingCheckAdapter;
 import com.example.jie.sign.Adapter.MeetingRoomAdapter;
 import com.example.jie.sign.BaseTemplate.BaseActivity;
+import com.example.jie.sign.Bean.AllMeetingNewsBean;
 import com.example.jie.sign.Bean.MeetingRoomBean;
+import com.example.jie.sign.Bean.MeetingRoomBeanUse;
+import com.example.jie.sign.Controller.LoginController;
+import com.example.jie.sign.Manager.InterfaceManger;
 import com.example.jie.sign.R;
 import com.example.jie.sign.Utils.OnItemClickListener;
+import com.example.jie.sign.Utils.RetrofitUtils;
+import com.example.jie.sign.Utils.SpaceItemDecoration;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+
+import okhttp3.MultipartBody;
+import okhttp3.RequestBody;
 
 /**
  * Created by YX on 2018/9/9.
@@ -21,7 +35,7 @@ import java.util.List;
 
 public class MeetingRoomActivity extends BaseActivity {
     private Button btn_add;//添加
-    List<MeetingRoomBean> list = new ArrayList<>();
+    List<MeetingRoomBeanUse> list = new ArrayList<>();
     private RecyclerView rv_list;
     private MeetingRoomAdapter adapter;
 
@@ -46,39 +60,32 @@ public class MeetingRoomActivity extends BaseActivity {
         setTitleCanBack();
         setTitle("查看会议室");
         setEdit2("添加");
-//        for (int i = 0; i < 5; i++) {
-//            MeetingRoomBean meetingRoomBean = new MeetingRoomBean("锡科61401", "查看详情");
-//            list.add(meetingRoomBean);
-//        }
-        MeetingRoomBean meetingRoomBean = new MeetingRoomBean("锡科614", "查看详情");
-        MeetingRoomBean meetingRoomBean2 = new MeetingRoomBean("田师212", "查看详情");
-        MeetingRoomBean meetingRoomBean3 = new MeetingRoomBean("工楼B14", "查看详情");
-        MeetingRoomBean meetingRoomBean4 = new MeetingRoomBean("锡科503", "查看详情");
-        MeetingRoomBean meetingRoomBean5 = new MeetingRoomBean("教科440", "查看详情");
-        MeetingRoomBean meetingRoomBean6 = new MeetingRoomBean("工楼A10", "查看详情");
-        MeetingRoomBean meetingRoomBean7= new MeetingRoomBean("锡科201", "查看详情");
-        MeetingRoomBean meetingRoomBean8= new MeetingRoomBean("工楼C12", "查看详情");
-        MeetingRoomBean meetingRoomBean9= new MeetingRoomBean("锡科208", "查看详情");
-        list.add(meetingRoomBean);
-        list.add(meetingRoomBean2);
-        list.add(meetingRoomBean3);
-        list.add(meetingRoomBean4);
-        list.add(meetingRoomBean5);
-        list.add(meetingRoomBean6);
-        list.add(meetingRoomBean7);
-        list.add(meetingRoomBean8);
-        list.add(meetingRoomBean9);
-
-        LinearLayoutManager layoutManager = new LinearLayoutManager(this);
-        rv_list.setLayoutManager(layoutManager);
-        adapter = new MeetingRoomAdapter(list);
-        adapter.setmOnItemClickListener(new OnItemClickListener() {
+//        MeetingRoomBean meetingRoomBean = new MeetingRoomBean("锡科614", "查看详情");
+//        MeetingRoomBean meetingRoomBean2 = new MeetingRoomBean("田师212", "查看详情");
+        List<String> photos = new ArrayList<>();
+        List<MultipartBody.Part> parts = null;
+        Map<String, RequestBody> params = new HashMap<>();
+        params.put("unit_id", RetrofitUtils.convertToRequestBody("210"));
+        LoginController.memberview2(params, parts, new InterfaceManger.OnRequestListener() {
             @Override
-            public void onItemClick(View view, int position) {
-                Toast.makeText(MeetingRoomActivity.this, String.valueOf(position), Toast.LENGTH_SHORT).show();
+            public void onSuccess(Object success) {
+                list = MeetingRoomBeanUse.arrayMeetingRoomBeanUseFromData((String) success);
+                LinearLayoutManager layoutManager = new LinearLayoutManager(MeetingRoomActivity.this);
+                rv_list.setLayoutManager(layoutManager);
+                //rv_list.addItemDecoration(new SpaceItemDecoration(48, 24));
+                adapter = new MeetingRoomAdapter(list);
+                rv_list.setAdapter(adapter);
+            }
+
+            @Override
+            public void onError(String error) {
+                showToast(error);
+            }
+
+            @Override
+            public void onComplete() {
             }
         });
-        rv_list.setAdapter(adapter);
     }
 
     @Override

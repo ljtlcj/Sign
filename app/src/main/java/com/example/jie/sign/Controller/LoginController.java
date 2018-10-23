@@ -217,7 +217,7 @@ public class LoginController {
                 }
                 try {
                     String body = response.body().string();
-                    Log.e("onResponse:",body );
+                    Log.e("onResponse:", body);
                     Object object = body;
                     if (!body.contains("error")) {
                         listener.onSuccess(object);
@@ -261,10 +261,103 @@ public class LoginController {
                 }
                 try {
                     String body = response.body().string();
-                    Log.e("onResponse:",body );
+                    Log.e("onResponse:", body);
                     Object object = body;
                     if (!body.contains("error")) {
-                        if (body.contains("1")){
+                        if (body.contains("1")) {
+                            listener.onSuccess(object);
+                        }
+                    } else {
+                        listener.onError("");
+                    }
+                } catch (Exception e) {
+                    listener.onError(e.toString());
+                    e.printStackTrace();
+                }
+                listener.onComplete();
+            }
+
+            @Override
+            public void onFailure(Call<ResponseBody> call, Throwable t) {
+                if (listener == null) {
+                    return;
+                }
+                Log.e("onFailure", t.toString());
+                if (t.toString().contains("ConnectException")) {
+                    listener.onError("网络异常");
+                } else {
+                    listener.onError("网络异常");
+                }
+                listener.onComplete();
+            }
+        });
+    }
+
+    //会场管理-会议室使用
+    public static void memberview2(Map<String, RequestBody> map, List<MultipartBody.Part> parts, final InterfaceManger.OnRequestListener listener) {
+        Call<ResponseBody> call = RetrofitUtils.getInstance().memberview2(map, parts);
+        call.enqueue(new Callback<ResponseBody>() {
+            @Override
+            public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
+                if (listener == null) {
+                    return;
+                }
+                if (!response.isSuccessful() || response == null) {
+                    listener.onError(String.valueOf(response.code()));
+                    return;
+                }
+                try {
+                    String body = response.body().string();
+                    Log.e("onResponsea:", body);
+                    Object object = body;
+                    Log.e("onResponsea:", String.valueOf(object));
+                    if (!body.contains("error")) {
+                        listener.onSuccess(object);
+                    } else {
+                        listener.onError("");
+                    }
+                } catch (Exception e) {
+                    listener.onError(e.toString());
+                    e.printStackTrace();
+                }
+                listener.onComplete();
+            }
+
+            @Override
+            public void onFailure(Call<ResponseBody> call, Throwable t) {
+                if (listener == null) {
+                    return;
+                }
+                Log.e("onFailure", t.toString());
+                if (t.toString().contains("ConnectException")) {
+                    listener.onError("网络异常");
+                } else {
+                    listener.onError("网络异常");
+                }
+                listener.onComplete();
+            }
+        });
+    }
+
+    //会场管理-会场管理主页面
+    public static void memberdel2(Map<String, RequestBody> map, List<MultipartBody.Part> parts, final InterfaceManger.OnRequestListener listener) {
+        Call<ResponseBody> call = RetrofitUtils.getInstance().memberdel2(map, parts);
+        call.enqueue(new Callback<ResponseBody>() {
+            @Override
+            public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
+                if (listener == null) {
+                    return;
+                }
+                if (!response.isSuccessful() || response == null) {
+                    listener.onError(String.valueOf(response.code()));
+                    return;
+                }
+                try {
+                    String body = response.body().string();
+                    Log.e("onResponse:", body);
+                    Object object = body;
+                    if (!body.contains("error")) {
+                        if (body.contains("1")) {
                             listener.onSuccess(object);
                         }
                     } else {
