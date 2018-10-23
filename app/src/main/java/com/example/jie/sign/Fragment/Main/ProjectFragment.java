@@ -8,6 +8,7 @@ import android.widget.Toast;
 import com.example.jie.sign.BaseTemplate.BaseLazyFragment;
 
 import com.example.jie.sign.R;
+import com.example.jie.sign.View.AddMeeting.MeetingAddActivity;
 import com.example.jie.sign.View.MeetingCheckActivity;
 import com.example.jie.sign.View.MeetingCheckDetailActivity;
 import com.example.jie.sign.View.MeetingCheckDetailMemberActivity;
@@ -59,7 +60,7 @@ public class ProjectFragment extends BaseLazyFragment {
                 startActivity(MeetingRoomActivity.class);
                 break;
             case R.id.ly_add_meeting:
-                startActivity(MeetingCheckDetailActivity.class);
+                startActivity(MeetingAddActivity.class);
                 break;
             default:
                 break;
