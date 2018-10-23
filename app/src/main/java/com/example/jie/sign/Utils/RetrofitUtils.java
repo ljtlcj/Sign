@@ -77,5 +77,10 @@ public class RetrofitUtils {
         @Multipart
         @POST("Conference/non_arrival_member2")
         Call<ResponseBody> non_arrival_member2(@PartMap Map<String, RequestBody> map, @Part List<MultipartBody.Part> parts);
+
+        //添加会议-人员选择
+        @Multipart
+        @POST("Conference/member_and_group2")
+        Call<ResponseBody> member_and_group2(@PartMap Map<String, RequestBody> map, @Part List<MultipartBody.Part> parts);
     }
 }
