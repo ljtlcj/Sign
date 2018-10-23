@@ -129,6 +129,7 @@
         </LinearLayout>
 
         <LinearLayout
+            android:id="@+id/Ln_new"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="#FFF"
@@ -177,12 +178,13 @@
 
 
     <Button
+        android:id="@+id/btn_back"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_marginBottom="24dp"
-        android:layout_marginLeft="48dp"
-        android:layout_marginRight="48dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
         android:background="@drawable/radius_button_red"
         android:minHeight="0dp"
         android:minWidth="0dp"
