@@ -2,14 +2,11 @@ package com.example.jie.sign.Fragment.Main;
 
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.View;
-import android.widget.Toast;
 
 import com.example.jie.sign.Adapter.MeetingCheckAdapter;
 import com.example.jie.sign.BaseTemplate.BaseLazyFragment;
 import com.example.jie.sign.Bean.AllMeetingNewsBean;
-import com.example.jie.sign.Bean.MeetingCheckBean;
 import com.example.jie.sign.Controller.LoginController;
 import com.example.jie.sign.Manager.InterfaceManger;
 import com.example.jie.sign.R;
@@ -64,11 +61,17 @@ public class AllFragment extends BaseLazyFragment {
             @Override
             public void onSuccess(Object success) {
                 LinearLayoutManager layoutManager = new LinearLayoutManager(getContext());
-                 rv_list.setLayoutManager(layoutManager);
-                 rv_list.addItemDecoration(new SpaceItemDecoration(48,24));
-                lists1 = AllMeetingNewsBean.arrayAllMeetingNewsBeanFromData((String)success);
+                rv_list.setLayoutManager(layoutManager);
+                rv_list.addItemDecoration(new SpaceItemDecoration(48, 24));
+                lists1 = AllMeetingNewsBean.arrayAllMeetingNewsBeanFromData((String) success);
                 adapter = new MeetingCheckAdapter(lists1);
                 rv_list.setAdapter(adapter);
+                adapter.setOnItemClickListener(new OnItemClickListener() {
+                    @Override
+                    public void onItemClick(View view, int position) {
+                        startActivity(MeetingCheckDetailActivity.class);
+                    }
+                });
             }
 
             @Override
