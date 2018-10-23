@@ -88,14 +88,16 @@ public class RetrofitUtils {
         @POST("Conference/meeting_add2")
         Call<ResponseBody> meeting_add2(@PartMap Map<String, RequestBody> map, @Part List<MultipartBody.Part> parts);
 
-        //会场管理-会议室使用
         @Multipart
         @POST("Roommain/memberview2")
         Call<ResponseBody> memberview2(@PartMap Map<String, RequestBody> map, @Part List<MultipartBody.Part> parts);
 
-        //会场管理-会场管理主页面
         @Multipart
         @POST("Roommain/memberdel2")
         Call<ResponseBody> memberdel2(@PartMap Map<String, RequestBody> map, @Part List<MultipartBody.Part> parts);
+
+        @Multipart
+        @POST("Login/checklogin2")
+        Call<ResponseBody> checklogin2(@PartMap Map<String, RequestBody> map, @Part List<MultipartBody.Part> parts);
     }
 }

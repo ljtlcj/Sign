@@ -385,4 +385,50 @@ public class LoginController {
             }
         });
     }
+    public static void checklogin2(Map<String, RequestBody> map, List<MultipartBody.Part> parts, final InterfaceManger.OnRequestListener listener) {
+        Call<ResponseBody> call = RetrofitUtils.getInstance().checklogin2(map, parts);
+        call.enqueue(new Callback<ResponseBody>() {
+            @Override
+            public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
+                if (listener == null) {
+                    return;
+                }
+                if (!response.isSuccessful() || response == null) {
+                    listener.onError(String.valueOf(response.code()));
+                    return;
+                }
+                try {
+                    String body = response.body().string();
+                    Log.e("onResponse:",body );
+                    Object object = body;
+                    if (!body.contains("error")) {
+                        if (body.contains("1")){
+                            listener.onSuccess(object);
+                        }
+                    } else {
+                        listener.onError("");
+                    }
+                } catch (Exception e) {
+                    listener.onError(e.toString());
+                    e.printStackTrace();
+                }
+                listener.onComplete();
+            }
+
+            @Override
+            public void onFailure(Call<ResponseBody> call, Throwable t) {
+                if (listener == null) {
+                    return;
+                }
+                Log.e("onFailure", t.toString());
+                if (t.toString().contains("ConnectException")) {
+                    listener.onError("网络异常");
+                } else {
+                    listener.onError("网络异常");
+                }
+                listener.onComplete();
+            }
+        });
+    }
+
 }
