@@ -46,6 +46,7 @@ public class MeetingCheckAdapter extends RecyclerView.Adapter<MeetingCheckAdapte
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_meeting_check, null);
         final ViewHolder holder = new ViewHolder(view);
         return holder;
+
     }
 
     @Override
