@@ -13,6 +13,7 @@ import com.example.jie.sign.View.MeetingCheckActivity;
 import com.example.jie.sign.View.MeetingCheckDetailActivity;
 import com.example.jie.sign.View.MeetingCheckDetailMemberActivity;
 import com.example.jie.sign.View.MeetingRoomActivity;
+import com.example.jie.sign.View.MeetingRoomMainActivity;
 
 
 /**
@@ -25,6 +26,7 @@ public class ProjectFragment extends BaseLazyFragment {
     private LinearLayout ly_meeting_check;//查看会议
     private LinearLayout ly_check_meeting_room;//查看会议室
     private LinearLayout ly_add_meeting;//添加会议室
+    private LinearLayout ly_meeting_main;//会议室主页面
 
     @Override
     public int getLayoutId() {
@@ -36,6 +38,7 @@ public class ProjectFragment extends BaseLazyFragment {
         ly_meeting_check = findView(R.id.ly_meeting_check);
         ly_check_meeting_room = findView(R.id.ly_check_meeting_room);
         ly_add_meeting=findView(R.id.ly_add_meeting);
+        ly_meeting_main=findView(R.id.ly_meeting_main);
     }
 
     @Override
@@ -43,6 +46,7 @@ public class ProjectFragment extends BaseLazyFragment {
         ly_meeting_check.setOnClickListener(this);
         ly_check_meeting_room.setOnClickListener(this);
         ly_add_meeting.setOnClickListener(this);
+        ly_meeting_main.setOnClickListener(this);
     }
 
     @Override
@@ -61,6 +65,9 @@ public class ProjectFragment extends BaseLazyFragment {
                 break;
             case R.id.ly_add_meeting:
                 startActivity(MeetingAddActivity.class);
+                break;
+            case R.id.ly_meeting_main:
+                startActivity(MeetingRoomMainActivity.class);
                 break;
             default:
                 break;

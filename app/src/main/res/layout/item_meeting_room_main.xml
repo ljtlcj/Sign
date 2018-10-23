@@ -26,7 +26,7 @@
             android:layout_weight="1"
             android:paddingBottom="4dp"
             android:paddingTop="4dp"
-            android:text="锡科614"
+            android:text=""
             android:textColor="#000" />
     </LinearLayout>
 
@@ -42,17 +42,17 @@
             android:paddingBottom="4dp"
             android:paddingLeft="16dp"
             android:paddingTop="4dp"
-            android:text="使用时间："
+            android:text="地点："
             android:textColor="#000" />
 
         <TextView
-            android:id="@+id/tv_meeting_time"
+            android:id="@+id/tv_meeting_location"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:paddingBottom="4dp"
             android:paddingTop="4dp"
-            android:text="2018-02-07 16:40"
+            android:text=""
             android:textColor="#000" />
     </LinearLayout>
 
@@ -67,17 +67,17 @@
             android:paddingBottom="4dp"
             android:paddingLeft="16dp"
             android:paddingTop="4dp"
-            android:text="使用部门："
+            android:text="座位数："
             android:textColor="#000" />
 
         <TextView
-            android:id="@+id/tv_meeting_group"
+            android:id="@+id/tv_meeting_seat"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:paddingBottom="4dp"
             android:paddingTop="4dp"
-            android:text="实践部"
+            android:text=""
             android:textColor="#000" />
     </LinearLayout>
 
@@ -102,7 +102,7 @@
             android:layout_weight="1"
             android:paddingBottom="4dp"
             android:paddingTop="4dp"
-            android:text="123"
+            android:text=""
             android:textColor="#000" />
     </LinearLayout>
     <View

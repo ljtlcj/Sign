@@ -357,9 +357,7 @@ public class LoginController {
                     Log.e("onResponse:", body);
                     Object object = body;
                     if (!body.contains("error")) {
-                        if (body.contains("1")) {
-                            listener.onSuccess(object);
-                        }
+                        listener.onSuccess(object);
                     } else {
                         listener.onError("");
                     }
@@ -385,6 +383,7 @@ public class LoginController {
             }
         });
     }
+
     public static void checklogin2(Map<String, RequestBody> map, List<MultipartBody.Part> parts, final InterfaceManger.OnRequestListener listener) {
         Call<ResponseBody> call = RetrofitUtils.getInstance().checklogin2(map, parts);
         call.enqueue(new Callback<ResponseBody>() {
@@ -399,10 +398,10 @@ public class LoginController {
                 }
                 try {
                     String body = response.body().string();
-                    Log.e("onResponse:",body );
+                    Log.e("onResponse:", body);
                     Object object = body;
                     if (!body.contains("error")) {
-                        if (body.contains("1")){
+                        if (body.contains("1")) {
                             listener.onSuccess(object);
                         }
                     } else {

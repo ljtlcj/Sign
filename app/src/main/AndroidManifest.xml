@@ -25,6 +25,7 @@
         <activity android:name=".View.AddMeeting.MeetingAddActivity"/>
         <activity android:name=".View.MeetingCheckDetailArrivalMemberActivity"/>
         <activity android:name=".View.MeetingCheckDetailNoMemberActivity"/>
+        <activity android:name=".View.MeetingRoomMainActivity"/>
     </application>
 
 </manifest>
