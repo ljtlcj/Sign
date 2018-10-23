@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.example.jie.sign.Bean.AllMeetingNewsBean;
 import com.example.jie.sign.Bean.MeetingCheckBean;
 import com.example.jie.sign.R;
 import com.example.jie.sign.Utils.OnItemClickListener;
@@ -18,11 +19,11 @@ import java.util.List;
 
 public class MeetingCheckAdapter extends RecyclerView.Adapter<MeetingCheckAdapter.ViewHolder> {
 
-    private List<MeetingCheckBean> list;
+    private List<AllMeetingNewsBean> list;
     private OnItemClickListener mOnItemClickListener;//声明接口
 
 
-    public MeetingCheckAdapter(List<MeetingCheckBean> list) {
+    public MeetingCheckAdapter(List<AllMeetingNewsBean> list) {
         this.list = list;
     }
 
@@ -49,10 +50,10 @@ public class MeetingCheckAdapter extends RecyclerView.Adapter<MeetingCheckAdapte
 
     @Override
     public void onBindViewHolder(final ViewHolder holder, final int position) {
-        MeetingCheckBean meetingCheckBean = list.get(position);
-        holder.tv_name.setText(meetingCheckBean.getName());
-        holder.tv_address.setText(meetingCheckBean.getAddress());
-        holder.tv_time.setText(meetingCheckBean.getTime());
+        AllMeetingNewsBean allMeetingNewsBean = list.get(position);
+        holder.tv_name.setText(allMeetingNewsBean.getMeeting_name());
+        holder.tv_address.setText(allMeetingNewsBean.getRoom_id());
+        holder.tv_time.setText(allMeetingNewsBean.getMeeting_time());
         if (mOnItemClickListener != null){
             holder.itemView.setOnClickListener(new View.OnClickListener() {
                 @Override

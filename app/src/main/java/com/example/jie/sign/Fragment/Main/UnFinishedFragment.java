@@ -40,22 +40,22 @@ public class UnFinishedFragment extends BaseLazyFragment {
 
     @Override
     public void initData() {
-        LinearLayoutManager layoutManager = new LinearLayoutManager(getContext());
-        rv_list.setLayoutManager(layoutManager);
-        adapter = new MeetingCheckAdapter(lists);
-        rv_list.addItemDecoration(new SpaceItemDecoration(48,24));
-        rv_list.setAdapter(adapter);
-
-        for(int i=0;i<4;i++){
-            MeetingCheckBean meetingCheckBean = new MeetingCheckBean("班会", "锡科61401", "2018-12-05 16:00", true);
-            lists.add(meetingCheckBean);
-        }
-        adapter.setOnItemClickListener(new OnItemClickListener() {
-            @Override
-            public void onItemClick(View view, int position) {
-                startActivity(MeetingCheckDetailActivity.class);
-            }
-        });
+//        LinearLayoutManager layoutManager = new LinearLayoutManager(getContext());
+//        rv_list.setLayoutManager(layoutManager);
+//        adapter = new MeetingCheckAdapter(lists);
+//        rv_list.addItemDecoration(new SpaceItemDecoration(48,24));
+//        rv_list.setAdapter(adapter);
+//
+//        for(int i=0;i<4;i++){
+//            MeetingCheckBean meetingCheckBean = new MeetingCheckBean("班会", "锡科61401", "2018-12-05 16:00", true);
+//            lists.add(meetingCheckBean);
+//        }
+//        adapter.setOnItemClickListener(new OnItemClickListener() {
+//            @Override
+//            public void onItemClick(View view, int position) {
+//                startActivity(MeetingCheckDetailActivity.class);
+//            }
+//        });
     }
 
     @Override

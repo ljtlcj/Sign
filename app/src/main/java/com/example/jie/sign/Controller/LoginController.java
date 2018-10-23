@@ -29,8 +29,8 @@ public class LoginController {
         this.context = context;
     }
 
-    public static void ReadAllLock(Map<String, RequestBody> map, List<MultipartBody.Part> parts, final InterfaceManger.OnRequestListener listener) {
-        Call<ResponseBody> call = RetrofitUtils.getInstance().ReadAllLock(map, parts);
+    public static void membermeeting2(Map<String, RequestBody> map, List<MultipartBody.Part> parts, final InterfaceManger.OnRequestListener listener) {
+        Call<ResponseBody> call = RetrofitUtils.getInstance().membermeeting2(map, parts);
         call.enqueue(new Callback<ResponseBody>() {
             @Override
             public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
