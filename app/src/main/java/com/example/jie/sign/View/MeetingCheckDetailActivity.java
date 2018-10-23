@@ -104,12 +104,12 @@ public class MeetingCheckDetailActivity extends BaseActivity {
 //                startActivity(MeetingCheckDetailMemberActivity.class);
                 break;
             case R.id.tv_no_member:
-                Intent intent1 = new Intent(MeetingCheckDetailActivity.this, MeetingCheckDetailArrivalMemberActivity.class);
+                Intent intent1 = new Intent(MeetingCheckDetailActivity.this, MeetingCheckDetailNoMemberActivity.class);
                 intent1.putExtra("id",idId.getText().toString().trim());
                 startActivity(intent1);
                 break;
             case R.id.tv_has_member:
-                Intent intent2 = new Intent(MeetingCheckDetailActivity.this, MeetingCheckDetailNoMemberActivity.class);
+                Intent intent2 = new Intent(MeetingCheckDetailActivity.this, MeetingCheckDetailArrivalMemberActivity.class);
                 intent2.putExtra("id",idId.getText().toString().trim());
                 startActivity(intent2);
                 break;
