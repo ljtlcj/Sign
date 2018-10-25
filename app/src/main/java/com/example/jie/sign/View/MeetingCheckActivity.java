@@ -56,6 +56,8 @@ public class MeetingCheckActivity extends BaseActivity implements ViewPager.OnPa
         initFragments();
     }
 
+
+
     private void initFragments() {
         list = new ArrayList<>();
         list.add(new AllFragment());

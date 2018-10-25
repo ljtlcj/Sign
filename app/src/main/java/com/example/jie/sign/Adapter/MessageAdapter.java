@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.example.jie.sign.Bean.AllMeetingNewsBean;
 import com.example.jie.sign.Bean.MessageBean;
 import com.example.jie.sign.R;
 import com.example.jie.sign.Utils.OnItemClickListener;
@@ -18,10 +19,10 @@ import java.util.List;
 
 public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.ViewHolder> {
 
-    private List<MessageBean> list;
+    private List<AllMeetingNewsBean> list;
     private OnItemClickListener mOnItemClickListener;//声明接口
 
-    public MessageAdapter(List<MessageBean> list) {
+    public MessageAdapter(List<AllMeetingNewsBean> list) {
         this.list = list;
     }
 
@@ -46,9 +47,9 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.ViewHold
 
     @Override
     public void onBindViewHolder(MessageAdapter.ViewHolder holder, final int position) {
-        MessageBean messageBean = list.get(position);
-        holder.tv_title.setText(messageBean.getTitle());
-        holder.tv_content.setText(messageBean.getContent());
+        AllMeetingNewsBean allMeetingNewsBean = list.get(position);
+        holder.tv_title.setText("会议即将开始");
+        holder.tv_content.setText("请于"+ allMeetingNewsBean.getMeeting_time()+"到"+allMeetingNewsBean.getRoom_id()+"号厅开会");
         if(mOnItemClickListener!=null){
             holder.itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
